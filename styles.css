@@ -1,0 +1,94 @@
+html, body {
+    width: 100%;
+    height: 100%;
+    color: #394b27;
+    font-family: 'Work Sans', sans-serif;
+    background: #d6bdd9;
+    margin: auto;
+    text-align: center;
+}
+
+#heading {
+    font-size: 35px;
+}
+
+#container {
+    display: grid;
+    margin: 20px;
+    padding: 20px;
+    grid-template-columns: 300px 300px 300px;
+    grid-template-rows: 300px 300px 300px;
+    justify-items: center;
+    justify-content: center;
+}
+
+.book {
+    height: 250px;
+    width: 250px;
+    border: 1px solid black;
+    border-radius: 10%;
+    background-color: #9ed2a6;
+    margin: 20px;
+    font-size: 30px;
+    text-align: center;
+    padding: 10px;
+    overflow-wrap: break-word;
+    position: relative;
+}
+
+#form {
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    width: 500px;
+    height: 350px;
+    border: 2px solid white;
+    border-radius:  10%;
+    font-size: 20px;
+    z-index: 10;
+    background-color: #534945;
+    color: #d2d2ed;
+    text-align: center;
+    display: none;
+}
+
+label, input {
+    margin: 10px;
+}
+
+#submit {
+    height: 30px;
+    width: 100px;
+    background-color: #7977aa;
+    color: #ffffff;
+    border: 1px solid;
+    border-radius: 5%;
+    margin: 10px;
+}
+
+#add {
+    height: 30px;
+    width: 100px;
+    background-color: #7977aa;
+    color: #ffffff;
+    border: 1px solid;
+    border-radius: 5%;
+}
+
+.remove {
+    bottom: 10px;
+    left: 0;
+    right: 0;
+    position: absolute;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    background-color: #e76d6d;
+    color: #ffffff;
+    height: 30px;
+    width: 100px;
+    border: 1px solid;
+    border-radius: 5%;
+}
