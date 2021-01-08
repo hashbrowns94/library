@@ -3,17 +3,20 @@ let container = document.getElementById('container');
 let add = document.querySelector('#add');
 let formDiv = document.getElementById('form');
 let submit = document.getElementById('submit');
+let userTitle = document.getElementById('inputTitle').innerHTML;
 
-
-function Book(title, author, pages, read){
+function Book(title, author, read){
     this.title = title,
     this.author = author,
-    this.pages = pages,
     this.read = read
 }
 
 Book.prototype.addBookToLibrary = (book) => {
     myLibrary.push(book);
+}
+
+function readForm(){
+    alert(userTitle);
 }
 
 function displayBook(){
@@ -41,6 +44,7 @@ add.addEventListener('click', function(){
 
 submit.addEventListener('click', function(){
     formDiv.style.display = 'none';
+    readForm();
 });
 
 
