@@ -25,7 +25,6 @@ let add = document.querySelector('#add');
 let formDiv = document.getElementById('form');
 let submit = document.getElementById('submit');
 
-
 function Book(title, author, read){
     this.title = title,
     this.author = author,
@@ -33,8 +32,12 @@ function Book(title, author, read){
 }
 
 Book.prototype = {
-    addBookToLibrary() {
-        myLibrary.push(book);
+    addBookToLibrary(title, author, read) {
+        myLibrary.push({
+            title: title, 
+            author: author,
+            read: read});
+        console.log(myLibrary);
     }
 }
 
@@ -42,10 +45,13 @@ function parseForm(){
     let userTitle = document.getElementById('inputTitle').value;
     let userAuthor = document.getElementById('inputAuthor').value;
     let userReadYes = document.getElementById('inputReadYes').value;
-    let userReadNo = document.getElementById('inputReadNo').value;
-    let userReadCurrent = document.getElementById('inputReadCurrentlyReading').value;
+    if(!userTitle || !userAuthor){
+        throw new Error(alert("Please fill out all fields"));
+    }
     
-    let newBook = new Book()
+    let newBook = new Book(userTitle, userAuthor);
+    newBook.addBookToLibrary(userTitle, userAuthor);
+    displayBook(newBook);
 }
 
 function displayBook(){
@@ -53,31 +59,45 @@ function displayBook(){
         const div = document.createElement('div');
         const removeButton = document.createElement('button');
         const titleNode = document.createTextNode(myLibrary[i].title)
+        const bylineDiv = document.createElement('div');
         const by = document.createTextNode('by');
         const authorNode = document.createTextNode(myLibrary[i].author);
+        const readDiv = document.createElement('div');
+        const readNode = document.createTextNode('Read');
+        const checked = document.createElement('input');
+        const slider = document.createElement('label');
+
         div.classList.add('book');
-        div.id = "slot" + i;
+        bylineDiv.classList.add('byline');
+        div.id = ('book' + i)
+        console.log(div.id);
         div.setAttribute('data-position', i);
+        readDiv.classList.add('read');
+
+        checked.type = 'checkbox';
+        checked.classList.add('readStatus');
+        slider.classList.add('switch');
+        slider.htmlFor = 'switch';
+
         container.appendChild(div);
         div.appendChild(titleNode);
         div.appendChild(document.createElement('br'));
-        div.appendChild(by);
-        div.appendChild(document.createElement('br'));
+        div.appendChild(bylineDiv);
+        bylineDiv.appendChild(by);
         div.appendChild(authorNode);
+        div.appendChild(document.createElement('br'));
+        div.appendChild(readDiv)
+        readDiv.appendChild(readNode);
+        readDiv.appendChild(checked);
+        readDiv.appendChild(slider);
 
         removeButton.setAttribute('class', 'remove');
         removeButton.textContent = 'Remove Book';
         div.appendChild(removeButton);
+        
     }
 }
-displayBook();
-let rmv = document.querySelector('.remove');
-
-function removeBook(){
-    //select the div
-    //find what to hook up to the div
-    //take the div out of the array. arr.pop, arr.slice?
-}
+displayBook()
 
 //event listeners
 add.addEventListener('click', function(){
@@ -89,8 +109,15 @@ submit.addEventListener('click', function(){
     parseForm();
 });
 
-rmv.addEventListener('click', function(){
-    alert('test');
-})
+function removeBook(){
+    for (var i = 0; i < myLibrary.length; i++){
+        let rmv = document.querySelector('.remove');
+        let div = document.getElementById('book' + i);
+        rmv.addEventListener('click', function(){
+            div.remove(myLibrary[i]);
+        });
+        }
+}
+removeBook(myLibrary[i])
 
 

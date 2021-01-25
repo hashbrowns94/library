@@ -13,19 +13,14 @@
         <h1 id = 'title'>Your Bookshelf</h1>
         <button id = 'add'>New Book</button>
     <div class = 'formHome' id = 'formDiv'>
-        <form id = 'form'>
+        <form id = 'form' onsubmit = 'return false'>
             <h2>Add A New Book To Shelf</h2>
            <label for = 'inputTitle' id = 'titleLabel'>Title:</label>
            <input type = 'text' id = 'inputTitle'><br>
            <label for = 'inputAuthor' id = 'titleAuthor'>Author:</label>
            <input type = 'text' id = 'inputAuthor'><br>
-           <label for = 'inputRead' id = 'readLabel'>Read?</label>
-           <label for = 'yes'>yes</label>
-           <input type = 'radio' id = 'inputReadYes'>
-           <label for = 'no'>no</label>
-           <input type = 'radio' id = 'inputReadNo'>
-           <label for = 'currentlyReading'>Currently Reading</label>
-           <input type = 'radio' id = 'inputReadCurrentlyReading'><br>
+           <label for = 'inputRead' id = 'readLabel'>Read</label>
+           <input type = 'checkbox' id = 'inputReadYes'><br>
            <input type = 'submit' value = 'Submit' id = 'submit' onclick = 'parseForm()'>
         </form>
     </div>

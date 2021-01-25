@@ -3,7 +3,8 @@ html, body {
     height: 100%;
     color: #394b27;
     font-family: 'Work Sans', sans-serif;
-    background: #d6bdd9;
+    /* background: #d6bdd9; */
+    background: #cfe7d6;
     margin: auto;
     text-align: center;
 }
@@ -66,6 +67,7 @@ label, input {
     border: 1px solid;
     border-radius: 5%;
     margin: 10px;
+    cursor: pointer;
 }
 
 #add {
@@ -75,6 +77,15 @@ label, input {
     color: #ffffff;
     border: 1px solid;
     border-radius: 5%;
+    cursor: pointer;
+}
+
+.byline {
+    color: #000;
+    font-size: 20px;
+    font-style: italic;
+    margin: 0;
+    padding: 0;
 }
 
 .remove {
@@ -91,4 +102,48 @@ label, input {
     width: 100px;
     border: 1px solid;
     border-radius: 5%;
+    cursor: pointer
 }
+
+.read {
+    display: inline-block;
+    vertical-align: top;
+    margin: 10px;
+    padding: 20px;
+}
+
+.switch {
+    float: right;
+    position: relative; 
+    width: 50px; 
+    height: 25px; 
+    background-color: rgb(85, 100, 85); 
+    border-radius: 30px; 
+    border: 2px solid #FFF; 
+  }
+
+  .switch::after {
+    content: ''; 
+    cursor: pointer;
+    position: absolute; 
+    width: 21.5px; 
+    height: 23px; 
+    border-radius: 50%; 
+    background-color: #d9d8f7; 
+    top: 1px;  
+    left: 1px; 
+    transition: all 0.5s; 
+  }
+
+  .readStatus:checked + .switch { 
+    background-color: green; 
+} 
+
+  .readStatus:checked + .switch::after { 
+    left: 49px;  
+} 
+
+.readStatus {
+    display: none;
+}
+  
