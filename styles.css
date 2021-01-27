@@ -44,7 +44,7 @@ html, body {
     margin-left: auto;
     margin-right: auto;
     width: 500px;
-    height: 350px;
+    height: 250px;
     border: 2px solid white;
     border-radius:  10%;
     font-size: 20px;
@@ -66,7 +66,7 @@ label, input {
     color: #ffffff;
     border: 1px solid;
     border-radius: 5%;
-    margin: 10px;
+    margin: 20px;
     cursor: pointer;
 }
 
@@ -136,11 +136,14 @@ label, input {
   }
 
   .readStatus:checked + .switch { 
-    background-color: green; 
+    background-color: rgb(250, 244, 157); 
+    border: 2px solid rgb(154, 156, 154);
 } 
 
   .readStatus:checked + .switch::after { 
-    left: 49px;  
+    left: 27px;  
+    border: .5px solid rgb(154, 156, 154);
+    top: 0px;
 } 
 
 .readStatus {

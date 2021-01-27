@@ -44,7 +44,6 @@ Book.prototype = {
 function parseForm(){
     let userTitle = document.getElementById('inputTitle').value;
     let userAuthor = document.getElementById('inputAuthor').value;
-    let userReadYes = document.getElementById('inputReadYes').value;
     if(!userTitle || !userAuthor){
         throw new Error(alert("Please fill out all fields"));
     }
@@ -76,10 +75,11 @@ function displayBook(){
 
         checked.type = 'checkbox';
         checked.classList.add('readStatus');
+        checked.id = 'checkboxID'
         slider.classList.add('switch');
-        slider.htmlFor = 'switch';
+        slider.htmlFor = 'checkboxID';
 
-        container.appendChild(div);
+        
         div.appendChild(titleNode);
         div.appendChild(document.createElement('br'));
         div.appendChild(bylineDiv);
@@ -90,6 +90,7 @@ function displayBook(){
         readDiv.appendChild(readNode);
         readDiv.appendChild(checked);
         readDiv.appendChild(slider);
+        container.appendChild(div);
 
         removeButton.setAttribute('class', 'remove');
         removeButton.textContent = 'Remove Book';
@@ -114,7 +115,7 @@ function removeBook(){
         let rmv = document.querySelector('.remove');
         let div = document.getElementById('book' + i);
         rmv.addEventListener('click', function(){
-            div.remove(myLibrary[i]);
+            myLibrary.pop(i);
         });
         }
 }
